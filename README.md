@@ -1,5 +1,11 @@
 # Telegram bot to ban users from group chats and delete group chat messages
 
+## Bot syntax
+
+- Reply to the message with `/delete` text to delete the message
+- `/ban <username>` to ban the user
+- `/unban <username>` to unban the user
+
 ## Prerequesites
 
 - `node` v.14 or higher

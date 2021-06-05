@@ -5,6 +5,27 @@
 - `node` v.14 or higher
 - `yarn` should be globally installed
 
+## Clone the repository and install node dependencies
+
+```
+git clone https://github.com/alexkorep/telegram-devworden-bot.git
+cd telegram-devworden-bot
+yarn
+```
+
+### Run the bot locally
+
+Copy `env.example` file to `env.example`. Update it with your bot token (see Create a new Telegram bot section) and the admin username (telegram username)
+
+In the project directory:
+
+```
+yarn runserver
+```
+
+See Register bot webhook URL section for instruction how to make integrate the bot running
+locally with Telegram.
+
 ## Configuration
 
 ### Create a new Telegram bot
@@ -50,3 +71,7 @@ curl --request POST --url https://api.telegram.org/bot<your-bot-token>/setWebhoo
 
 Replace `<your-bot-token>` with your bot token and `<bot-url>` with the url received
 on the deployment step
+
+If you run the bot locally on your computer, you need `ngrok` utility, or similar, to expose your local app to the enternet via HTTPS: https://ngrok.com/
+
+Run `./ngrok http 5000`. You will be provided with HTTPS url which can be used to configure webhook.

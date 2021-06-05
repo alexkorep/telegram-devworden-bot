@@ -1,12 +1,12 @@
 {
   "name": "telegram-devworden-bot",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "handler.js",
   "author": "Alexey Korepanov",
   "license": "MIT",
   "scripts": {
     "deploy": "serverless deploy",
-    "runserver": "dotenv -e .env nodemon --exec \"serverless local-dev-server --port 5000\" -e \"js yml json\""
+    "runserver": "nodemon --exec \"serverless local-dev-server --port 5000\" -e \"js yml json\""
   },
   "devDependencies": {
     "dotenv-cli": "^4.0.0",

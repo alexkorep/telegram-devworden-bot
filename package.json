@@ -6,9 +6,10 @@
   "license": "MIT",
   "scripts": {
     "deploy": "serverless deploy",
-    "runserver": "nodemon --exec \"serverless local-dev-server --port 5000\" -e \"js yml json\""
+    "runserver": "dotenv -e .env nodemon --exec \"serverless local-dev-server --port 5000\" -e \"js yml json\""
   },
   "devDependencies": {
+    "dotenv-cli": "^4.0.0",
     "nodemon": "^2.0.7",
     "serverless": "^2.44.0",
     "serverless-local-dev-server": "^0.3.1"

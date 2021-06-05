@@ -3,8 +3,8 @@
 ## Bot syntax
 
 - Reply to the message with `/delete` text to delete the message
-- `/ban <username>` to ban the user
-- `/unban <username>` to unban the user
+- Reply to the user's message with `/ban` to ban the user
+- Reply to the user's message with `/unban` to unban the user
 
 ## Prerequesites
 

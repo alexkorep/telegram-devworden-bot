@@ -1,5 +1,5 @@
 const { isAuthorized, getCommand } = require("./messageUtils");
-const { deleteMessage } = require("./telegramApi");
+const { restrictUser, deleteMessage } = require("./telegramApi");
 /**
  * Check if the message contains a command to ban the user
  * @param {obj} message - Telegram message
@@ -11,15 +11,19 @@ module.exports = (message) => {
     return;
   }
   const command = getCommand(message);
-  if (command !== "BAN") {
+  if (command !== "BAN" && command !== "UNBAN") {
     return;
   }
 
   console.log("COMMAND", command);
-  // const message_id = message?.message_id;
-  // const user_to_ban_id = message?.reply_to_message?.from?.id;
-  // const chat_id = message?.chat?.id;
+  const user_to_ban_id = message?.reply_to_message?.from?.id;
+  const chat_id = message?.chat?.id;
 
-  // // Delete the command message
-  // deleteMessage(chat_id, message_id);
+  // Restrict the user
+  const isReadOnly = command === "BAN";
+  restrictUser(chat_id, user_to_ban_id, isReadOnly);
+
+  // Delete the command message
+  const message_id = message?.message_id;
+  deleteMessage(chat_id, message_id);
 };
